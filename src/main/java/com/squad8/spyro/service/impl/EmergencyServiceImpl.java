@@ -19,4 +19,9 @@ public class EmergencyServiceImpl implements EmergencyService {
     public List<Emergency> getAllEmergencies() {
         return emergencyRepository.findAll();
     }
+
+    @Override
+    public Emergency addEmergency(Emergency emergency) {
+        return emergencyRepository.save(emergency);
+    }
 }

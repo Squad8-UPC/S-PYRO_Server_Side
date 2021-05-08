@@ -10,4 +10,6 @@ public interface EmergencyService {
 
     public List<Emergency> getAllEmergencies();
 
+    public Emergency addEmergency(Emergency emergency);
+
 }

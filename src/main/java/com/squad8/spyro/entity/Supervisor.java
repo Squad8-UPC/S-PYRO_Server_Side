@@ -6,39 +6,27 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.UUID;
-
-
 
 @Entity
-@Table(name = "emergency")
+@Table(name = "supervisor")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Emergency {
+public class Supervisor {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "emergency_id", unique = true, nullable = false)
+    @Column(name = "supervisor_id", unique = true, nullable = false)
     private String id;
 
     @Column(name = "location_latitude")
-    private Double locationLatitude;
+    private String email;
 
     @Column(name = "location_longitude")
-    private Double locationLongitude;
+    private String password;
 
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "date")
-    private Date date;
-
-    @Column(name = "reported_time")
-    private Date reportedTime;
-
-    @Column(name = "birthdate")
-    private Date endTime;
+    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "firefighter_id",nullable = true)
+    private Firefighter firefighter;
 }
