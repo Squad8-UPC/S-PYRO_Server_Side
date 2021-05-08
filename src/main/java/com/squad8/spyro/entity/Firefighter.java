@@ -23,7 +23,7 @@ public class Firefighter {
     @Column(name = "firefighter_id", unique = true, nullable = false)
     private String id;
 
-    @Column(name = "location_latitude")
+    @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
@@ -32,7 +32,7 @@ public class Firefighter {
     @Column(name = "birthdate")
     private Date birthdate;
 
-    @Column(name = "dni")
+    @Column(name = "dni", length = 8)
     private String dni;
 
     @Column(name = "email")

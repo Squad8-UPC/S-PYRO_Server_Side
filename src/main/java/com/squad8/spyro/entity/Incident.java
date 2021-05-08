@@ -39,7 +39,7 @@ public class Incident {
 
     @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "firefighter_equipment_id",nullable = true)
-    private FirefighterEquipement firefighterEquipement;
+    private FirefighterEquipment firefighterEquipment;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fire_extinction_operation_id",nullable = true)

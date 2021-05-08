@@ -27,7 +27,7 @@ public class Scba {
     @Column(name = "due_date")
     private Date dueDate;
 
-    @Column(name = "serial_number")
+    @Column(name = "last_test_date")
     private Date lastTestDate;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)

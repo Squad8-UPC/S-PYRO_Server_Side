@@ -20,10 +20,10 @@ public class Supervisor {
     @Column(name = "supervisor_id", unique = true, nullable = false)
     private String id;
 
-    @Column(name = "location_latitude")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "location_longitude")
+    @Column(name = "password")
     private String password;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)

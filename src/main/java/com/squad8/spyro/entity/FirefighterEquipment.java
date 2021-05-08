@@ -11,11 +11,11 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "firefighter_equipement")
+@Table(name = "firefighter_equipment")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FirefighterEquipement {
+public class FirefighterEquipment {
 
     @Id
     @GeneratedValue(generator = "uuid2")
