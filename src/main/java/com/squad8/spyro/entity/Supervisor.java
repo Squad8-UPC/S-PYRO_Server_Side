@@ -26,7 +26,7 @@ public class Supervisor {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "firefighter_id",nullable = true)
     private Firefighter firefighter;
 }
