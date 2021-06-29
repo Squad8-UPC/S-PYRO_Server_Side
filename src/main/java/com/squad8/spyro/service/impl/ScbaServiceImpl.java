@@ -23,4 +23,9 @@ public class ScbaServiceImpl implements ScbaService {
     public Scba addScba(Scba scba) {
         return scbaRepository.save(scba);
     }
+
+    @Override
+    public Scba findById(String scbaId) {
+        return scbaRepository.findById(scbaId).get();
+    }
 }

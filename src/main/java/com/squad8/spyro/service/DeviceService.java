@@ -10,4 +10,6 @@ public interface DeviceService {
 
     public Device addDevice(Device device);
 
+    public Device findById(String deviceId);
+
 }

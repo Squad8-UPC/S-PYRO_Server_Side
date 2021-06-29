@@ -8,6 +8,8 @@ public interface FirefighterEquipmentService {
 
     public List<FirefighterEquipment> getAllFireFighterEquiments();
 
-    public FirefighterEquipment addFireFighterEquiment( FirefighterEquipment firefighterEquipment);
+    public FirefighterEquipment addFireFighterEquiment(FirefighterEquipment firefighterEquipment);
+
+
 
 }

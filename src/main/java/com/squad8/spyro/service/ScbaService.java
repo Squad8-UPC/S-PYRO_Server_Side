@@ -13,5 +13,5 @@ public interface ScbaService {
 
     public Scba addScba(Scba scba);
 
-
+    public Scba findById(String scbaId);
 }
