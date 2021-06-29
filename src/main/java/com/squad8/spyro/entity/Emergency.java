@@ -39,6 +39,7 @@ public class Emergency {
     @Column(name = "reported_time")
     private Date reportedTime;
 
-    @Column(name = "birthdate")
+
+    @Column(name = "end_time")
     private Date endTime;
 }
