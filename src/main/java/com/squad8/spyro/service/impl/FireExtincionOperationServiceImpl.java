@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class FireExtincionOperationServiceImpl implements FireExtinctionOperationService {
@@ -32,7 +36,10 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
     public int endAllFireExtinctionOperations(FireExtinctionOperationsEndDTO request) {
         int actualizado = 0;
         try{
-            actualizado = fireExtinctionOperationRepository.updateFireExtinctionOperationEndTimeByEmergencyId(request.getEndTime(), request.getEmergencyId());
+            final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            format.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date endTime = format.parse(request.getEndTime());
+            actualizado = fireExtinctionOperationRepository.updateFireExtinctionOperationEndTimeByEmergencyId(endTime, request.getEmergencyId());
 
         } catch(Exception e){
             System.out.println(e.getMessage());
