@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 //@Configuration
 public class MqttConfiguration {
-
-    @Bean
+    /*@Bean
     @ConfigurationProperties(prefix = "mqtt")
     public MqttConnectOptions mqttConnectOptions() {
 
@@ -44,6 +43,5 @@ public class MqttConfiguration {
             }
         });
         return mqttClient;
-    }
-
+    }*/
 }
