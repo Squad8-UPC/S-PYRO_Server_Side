@@ -14,6 +14,6 @@ import java.util.Date;
 @Setter
 public class FireExtinctionOperationsEndDTO implements Serializable {
     private String emergencyId;
-    private String endTime;
+    private Date endTime;
 }
 

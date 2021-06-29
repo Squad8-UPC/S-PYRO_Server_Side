@@ -14,6 +14,6 @@ public interface FireExtinctionOperationService {
     public FireExtinctionOperation addFireExtinctionOperation(FireExtinctionOperation fireExtinctionOperation);
 
     @Transactional
-    public String endAllFireExtinctionOperations(FireExtinctionOperationsEndDTO request);
+    public int endAllFireExtinctionOperations(FireExtinctionOperationsEndDTO request);
 
 }

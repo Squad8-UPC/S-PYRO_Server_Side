@@ -10,8 +10,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication(scanBasePackages = "com.squad8.spyro")
 public class SPyroApplication implements CommandLineRunner {
 
-    @Autowired
-    private MessagingService messagingService;
+   //@Autowired
+    //private MessagingService messagingService;
 
 
 
@@ -25,7 +25,7 @@ public class SPyroApplication implements CommandLineRunner {
 
         //messagingService.subscribe(topic);
 
-        messagingService.publish(topic, "Hola, este es un mensaje del topic:" + topic, 0, true);
+        //messagingService.publish(topic, "Hola, este es un mensaje del topic:" + topic, 0, true);
 
         //context.close();
     }

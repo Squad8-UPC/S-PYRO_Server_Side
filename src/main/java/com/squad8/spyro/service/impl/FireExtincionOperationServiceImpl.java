@@ -29,14 +29,16 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
 
     @Transactional
     @Override
-    public String endAllFireExtinctionOperations(FireExtinctionOperationsEndDTO request) {
+    public int endAllFireExtinctionOperations(FireExtinctionOperationsEndDTO request) {
         int actualizado = 0;
         try{
-            actualizado = fireExtinctionOperationRepository.updateFireExtinctionOperationEndTimeByEmergencyId(request.getEmergencyId(), );
+            actualizado = fireExtinctionOperationRepository.updateFireExtinctionOperationEndTimeByEmergencyId(request.getEndTime(), request.getEmergencyId());
 
         } catch(Exception e){
             System.out.println(e.getMessage());
         }
+
+        return actualizado;
 
     }
 
