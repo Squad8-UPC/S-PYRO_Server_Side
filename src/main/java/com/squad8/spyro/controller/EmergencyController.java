@@ -25,7 +25,8 @@ public class EmergencyController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("")
     public Emergency addEmergencies(@RequestBody Emergency emergency){
-
         return emergencyService.addEmergency(emergency);
     }
+
+
 }

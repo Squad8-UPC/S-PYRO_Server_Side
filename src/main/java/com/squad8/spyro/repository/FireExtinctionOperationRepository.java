@@ -13,7 +13,7 @@ public interface FireExtinctionOperationRepository extends JpaRepository<FireExt
     List<FireExtinctionOperation> findByEmergencyId(String emergencyId);
 
     @Modifying
-    @Query("UPDATE FireExtinctionOperation f SET f.endTime = ?1 WHERE f.emergency.id = ?2")
-    int updateFireExtinctionOperationEndTimeByEmergencyId(Date endTime, String emergencyId);
+    @Query("UPDATE FireExtinctionOperation f SET f.endTime = ?1 WHERE f.id = ?2")
+    int updateFireExtinctionOperationEndTimeByEmergencyId(Date endTime, String fireExtinctionOperationId);
 
 }

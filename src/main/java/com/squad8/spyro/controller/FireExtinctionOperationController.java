@@ -1,6 +1,6 @@
 package com.squad8.spyro.controller;
 
-import com.squad8.spyro.dto.request.FireExtinctionOperationsEndDTO;
+import com.squad8.spyro.dto.request.FireExtinctionOperationEndDTO;
 import com.squad8.spyro.entity.FireExtinctionOperation;
 import com.squad8.spyro.service.FireExtinctionOperationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class FireExtinctionOperationController {
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping
-    public int endAllFireExtinctionOperations(@RequestBody FireExtinctionOperationsEndDTO request) throws Exception{
-        return fireExtinctionOperationService.endAllFireExtinctionOperations(request);
+    public int endFireExtinctionOperation(@RequestBody FireExtinctionOperationEndDTO request) throws Exception{
+        return fireExtinctionOperationService.endFireExtinctionOperation(request);
     }
 
     @GetMapping

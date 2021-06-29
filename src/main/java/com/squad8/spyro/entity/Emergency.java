@@ -44,4 +44,5 @@ public class Emergency {
     //Format: 2018-11-23T08:00:00
     @Column(name = "end_time")
     private Date endTime;
+
 }
