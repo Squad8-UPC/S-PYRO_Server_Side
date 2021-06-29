@@ -12,8 +12,8 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-public class FireExtinctionOperationsEndDTO implements Serializable {
-    private String emergencyId;
+public class FireExtinctionOperationEndDTO implements Serializable {
+    private String fireExtinctionOperationId;
     private String endTime;
 }
 
