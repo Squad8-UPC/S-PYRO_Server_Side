@@ -1,5 +1,6 @@
 package com.squad8.spyro.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,9 +37,11 @@ public class Emergency {
     @Column(name = "date")
     private Date date;
 
+    //Format: 2018-11-23T08:00:00
     @Column(name = "reported_time")
     private Date reportedTime;
 
-    @Column(name = "birthdate")
+    //Format: 2018-11-23T08:00:00
+    @Column(name = "end_time")
     private Date endTime;
 }

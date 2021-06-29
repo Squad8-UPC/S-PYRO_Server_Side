@@ -22,6 +22,9 @@ public class EmergencyServiceImpl implements EmergencyService {
 
     @Override
     public Emergency addEmergency(Emergency emergency) {
+
+        System.out.println(emergency.getReportedTime());
+
         return emergencyRepository.save(emergency);
     }
 }
