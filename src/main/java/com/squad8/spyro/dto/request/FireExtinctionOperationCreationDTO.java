@@ -12,6 +12,9 @@ import java.util.Date;
 @Getter
 @Setter
 public class FireExtinctionOperationCreationDTO {
+
+    private static final long serialVersionUID=1L;
+
     private String firstFirefighterId;
     private String secondFirefighterId;
     private String firstScbaId;

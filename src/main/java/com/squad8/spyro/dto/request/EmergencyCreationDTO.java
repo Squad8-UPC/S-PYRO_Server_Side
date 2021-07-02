@@ -13,6 +13,9 @@ import java.util.Date;
 @Getter
 @Setter
 public class EmergencyCreationDTO implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     private String partNumber;
     private String state;
     private String address;

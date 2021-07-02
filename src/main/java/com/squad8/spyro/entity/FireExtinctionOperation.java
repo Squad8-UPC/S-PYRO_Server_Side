@@ -17,11 +17,14 @@ import java.util.UUID;
 @NoArgsConstructor
 public class FireExtinctionOperation {
 
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "fire_extinction_operation_id", unique = true, nullable = false)
     private String id;
+
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "emergency_id",nullable = false)

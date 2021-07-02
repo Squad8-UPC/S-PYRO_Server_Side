@@ -23,7 +23,7 @@ public class FireExtinctionOperationController {
         return fireExtinctionOperationService.endFireExtinctionOperation(request);
     }
 
-    @GetMapping
+    @GetMapping("{emergencyId}")
     public List<FireExtinctionOperation> getFireExtinctionOperations(@PathVariable("emergencyId") String emergencyId){
         return fireExtinctionOperationService.findByEmergencyId(emergencyId);
     }
