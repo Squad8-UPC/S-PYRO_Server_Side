@@ -24,4 +24,10 @@ public class FirefighterServiceImpl implements FirefighterService {
     public Firefighter addFirefighter(Firefighter firefighter) {
         return firefighterRepository.save(firefighter);
     }
+
+    @Override
+    public Firefighter findById(String firefighterId){
+        return firefighterRepository.findById(firefighterId).get();
+
+    }
 }

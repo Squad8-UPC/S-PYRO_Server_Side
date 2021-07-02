@@ -10,6 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 public interface FireExtinctionOperationRepository extends JpaRepository<FireExtinctionOperation, String> {
+
+
     List<FireExtinctionOperation> findByEmergencyId(String emergencyId);
 
     @Modifying

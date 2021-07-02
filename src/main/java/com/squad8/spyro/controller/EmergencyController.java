@@ -1,6 +1,7 @@
 package com.squad8.spyro.controller;
 
 
+import com.squad8.spyro.dto.request.EmergencyCreationDTO;
 import com.squad8.spyro.entity.Emergency;
 import com.squad8.spyro.service.EmergencyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/emergency/")
+@RequestMapping(path = "/api/emergency")
 public class EmergencyController {
 
     @Autowired
@@ -24,7 +25,7 @@ public class EmergencyController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("")
-    public Emergency addEmergencies(@RequestBody Emergency emergency){
+    public Emergency addEmergencie(@RequestBody EmergencyCreationDTO emergency){
         return emergencyService.addEmergency(emergency);
     }
 

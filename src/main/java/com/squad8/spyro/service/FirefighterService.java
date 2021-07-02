@@ -10,5 +10,5 @@ public interface FirefighterService {
 
     public Firefighter addFirefighter(Firefighter firefighter);
 
-
+    public Firefighter findById(String firefighterId);
 }
