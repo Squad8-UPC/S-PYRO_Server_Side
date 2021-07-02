@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 //@Service
 public class MessagingService {
 
-    @Autowired
+    /*@Autowired
     private IMqttClient mqttClient;
 
     public void publish(final String topic, final String payload, int qos, boolean retained)
@@ -27,9 +27,9 @@ public class MessagingService {
     public void subscribe(final String topic1) throws MqttException, InterruptedException {
         System.out.println("Messages received:");
 
-        /*mqttClient.subscribeWithResponse(topic, (tpic, msg) -> {
+        mqttClient.subscribeWithResponse(topic, (tpic, msg) -> {
             System.out.println(msg.getId() + " -> " + new String(msg.getPayload()));
-        });*/
-    }
+        });
+    }*/
 
 }
