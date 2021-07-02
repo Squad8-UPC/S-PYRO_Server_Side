@@ -9,11 +9,14 @@ import java.util.List;
 
 public interface FireExtinctionOperationService {
 
-    public List<FireExtinctionOperation> getAllFireExtinctionOperations();
+
+    List<FireExtinctionOperation> getAllFireExtinctionOperations();
 
     public FireExtinctionOperation addFireExtinctionOperation(FireExtinctionOperationCreationDTO fireExtinctionOperation);
 
     @Transactional
     public int endFireExtinctionOperation(FireExtinctionOperationEndDTO request);
 
+
+    public List<FireExtinctionOperation> findByEmergencyId(String emergencyId);
 }

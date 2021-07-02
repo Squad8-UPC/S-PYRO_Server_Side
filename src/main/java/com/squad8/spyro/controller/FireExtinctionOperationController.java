@@ -25,7 +25,7 @@ public class FireExtinctionOperationController {
 
     @GetMapping
     public List<FireExtinctionOperation> getFireExtinctionOperations(@PathVariable("emergencyId") String emergencyId){
-        return null;
+        return fireExtinctionOperationService.findByEmergencyId(emergencyId);
     }
 
     @ResponseStatus(HttpStatus.OK)

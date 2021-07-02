@@ -92,7 +92,10 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
 
     }
 
-
+    @Override
+    public List<FireExtinctionOperation> findByEmergencyId(String emergencyId) {
+        return fireExtinctionOperationRepository.findByEmergencyId(emergencyId);
+    }
 
 
 }
