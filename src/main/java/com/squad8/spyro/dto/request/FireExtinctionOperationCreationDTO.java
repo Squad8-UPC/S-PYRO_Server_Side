@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,4 +19,5 @@ public class FireExtinctionOperationCreationDTO {
     private String emergencyId;
     private String firstDeviceId;
     private String secondDeviceId;
+    private Date entryTime;
 }

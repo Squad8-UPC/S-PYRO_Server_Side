@@ -23,6 +23,9 @@ public class Firefighter {
     @Column(name = "firefighter_id", unique = true, nullable = false)
     private String id;
 
+    @Column(name = "code")
+    private String code;
+
     @Column(name = "first_name")
     private String firstName;
 

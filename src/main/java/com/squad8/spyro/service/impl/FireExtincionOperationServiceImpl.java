@@ -24,15 +24,6 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
     private FirefighterEquipmentService firefighterEquipmentService;
 
     @Autowired
-    private FirefighterService firefighterService;
-
-    @Autowired
-    private DeviceService deviceService;
-
-    @Autowired
-    private ScbaService scbaService;
-
-    @Autowired
     private EmergencyService emergencyService;
 
     @Override
@@ -40,54 +31,45 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
         return fireExtinctionOperationRepository.findAll();
     }
 
+    //TODO: CAMBIAR A BUSQUEDA POR NÚMERO SERIAL, CÓDIGO DE SCBA Y CÓDIGO DE BOMBERO, NO ID'S
     @Override
-    public FireExtinctionOperation addFireExtictionOperation(FireExtinctionOperationCreationDTO fireExtinctionOperation) {
-        Firefighter firstFirefighter;
-        Firefighter secondFirefighter;
+    public FireExtinctionOperation addFireExtinctionOperation(FireExtinctionOperationCreationDTO fireExtinctionOperationRequest) {
 
-        FirefighterEquipment firstFirefighterEquipment = new FirefighterEquipment();
-        FirefighterEquipment secondFirefighterEquipment = new FirefighterEquipment();
-
-        FirefighterEquipment firstFirefighterEquipmentSaved;
-        FirefighterEquipment secondFirefighterEquipmentSaved;
-
-        Device firstDevice;
-        Device secondDevice;
-
-        Scba firstScba;
-        Scba secondScba;
+        FirefighterEquipment firstFirefighterEquipment;
+        FirefighterEquipment secondFirefighterEquipment;
 
         Emergency emergency;
 
+        FireExtinctionOperation fireExtinctionOperation = new FireExtinctionOperation();
+        FireExtinctionOperation fireExtinctionOperationSaved;
+
         try{
-            //VALIDAR QUE LOS DATOS DE DEVICE, SCBA Y FIREFIGHTER NO SE REPITEN
-            firstFirefighter = firefighterService.findById(fireExtinctionOperation.getFirstFirefighterId());
-            secondFirefighter = firefighterService.findById(fireExtinctionOperation.getSecondFirefighterId());
 
-            firstDevice = deviceService.findById(fireExtinctionOperation.getFirstDeviceId());
-            secondDevice = deviceService.findById(fireExtinctionOperation.getSecondDeviceId());
+            firstFirefighterEquipment = firefighterEquipmentService.findOrCreateByScbaIdAndDeviceIdAndFirefighterId(
+                    fireExtinctionOperationRequest.getFirstScbaId(),
+                    fireExtinctionOperationRequest.getFirstDeviceId(),
+                    fireExtinctionOperationRequest.getFirstFirefighterId()
+            );
+            secondFirefighterEquipment = firefighterEquipmentService.findOrCreateByScbaIdAndDeviceIdAndFirefighterId(
+                    fireExtinctionOperationRequest.getSecondScbaId(),
+                    fireExtinctionOperationRequest.getSecondDeviceId(),
+                    fireExtinctionOperationRequest.getSecondFirefighterId()
+            );
 
-            firstScba = scbaService.findById(fireExtinctionOperation.getFirstScbaId());
-            secondScba = scbaService.findById(fireExtinctionOperation.getSecondScbaId());
+            emergency = emergencyService.findById(fireExtinctionOperationRequest.getEmergencyId());
+            Date entryTime = fireExtinctionOperationRequest.getEntryTime();
 
-            firstFirefighterEquipment.setDevice(firstDevice);
-            firstFirefighterEquipment.setScba(firstScba);
-            firstFirefighterEquipment.setFirefighter(firstFirefighter);
-
-            secondFirefighterEquipment.setDevice(secondDevice);
-            secondFirefighterEquipment.setScba(secondScba);
-            secondFirefighterEquipment.setFirefighter(secondFirefighter);
-
-            firstFirefighterEquipmentSaved = firefighterEquipmentService.addFireFighterEquiment(firstFirefighterEquipment);
-            secondFirefighterEquipmentSaved = firefighterEquipmentService.addFireFighterEquiment(secondFirefighterEquipment);
-
-            emergency = emergencyService.findById(fireExtinctionOperation.getEmergencyId());
+            fireExtinctionOperation.setEmergency(emergency);
+            fireExtinctionOperation.setFirefighterEquipment1(firstFirefighterEquipment);
+            fireExtinctionOperation.setFirefighterEquipment2(secondFirefighterEquipment);
+            fireExtinctionOperation.setEntryTime(entryTime);
+            fireExtinctionOperationSaved = fireExtinctionOperationRepository.save(fireExtinctionOperation);
 
         } catch(Exception e){
             throw e;
         }
 
-        return null;
+        return fireExtinctionOperationSaved;
 
 
     }
@@ -109,6 +91,8 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
         return actualizado;
 
     }
+
+
 
 
 }

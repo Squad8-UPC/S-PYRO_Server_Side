@@ -10,6 +10,8 @@ public interface FirefighterEquipmentService {
 
     public FirefighterEquipment addFireFighterEquiment(FirefighterEquipment firefighterEquipment);
 
+    public FirefighterEquipment findOrCreateByScbaIdAndDeviceIdAndFirefighterId(String scbaId, String deviceId, String firefighterId);
+
 
 
 }

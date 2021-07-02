@@ -24,6 +24,9 @@ public class Scba {
     @Column(name = "scba_id", unique = true, nullable = false)
     private String id;
 
+    @Column(name = "code")
+    private String code;
+
     @Column(name = "due_date")
     private Date dueDate;
 

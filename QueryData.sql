@@ -31,8 +31,8 @@ SET @UUIDDINCIDENT= uuid();
 -- ###################################### -- 
 
 -- INSERTANDO LA EMERGENCIA --
-INSERT INTO `spyro`.`emergency`(`emergency_id`,`address`,`date`,`end_time`,`location_latitude`,`location_longitude`,`reported_time`)
-VALUES(@UUIDEMERGENCY,"Av. Universitaria",curdate(),"2018-11-23",1.42,1.21,"2018-11-23 17:31:26");
+INSERT INTO `spyro`.`emergency`(`emergency_id`,`address`,`date`,`end_time`,`location_latitude`,`location_longitude`,`part_number`,`reported_time`,`state`)
+VALUES(@UUIDEMERGENCY,"Av. Universitaria",curdate(),"2018-11-23",1.42,1.21,"22200111", "2018-11-23 17:31:26", "Atendiendo");
 -- ########################################################################## -- 
 
 -- INSERTANDO A LOS BOMBEROS --
