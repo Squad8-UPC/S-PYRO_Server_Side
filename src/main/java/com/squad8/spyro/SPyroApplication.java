@@ -6,14 +6,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication(scanBasePackages = "com.squad8.spyro")
 public class SPyroApplication implements CommandLineRunner {
 
-   //@Autowired
+    //@Autowired
     //private MessagingService messagingService;
-
-
 
     public static void main(String[] args) {
         SpringApplication.run(SPyroApplication.class, args);
@@ -30,5 +31,18 @@ public class SPyroApplication implements CommandLineRunner {
         //context.close();
     }
 
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE")
+                        .allowedHeaders("*")
+                        .allowedOrigins("*")
+                        .allowCredentials(true);
+            }
+        };
+    }
 
 }
