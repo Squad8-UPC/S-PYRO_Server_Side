@@ -4,6 +4,7 @@ import com.squad8.spyro.dto.request.FireExtinctionOperationCreationDTO;
 import com.squad8.spyro.dto.request.FireExtinctionOperationEndDTO;
 import com.squad8.spyro.dto.request.FireExtinctionOperationGetGroupsDTO;
 import com.squad8.spyro.entity.FireExtinctionOperation;
+import com.squad8.spyro.entity.Firefighter;
 import com.squad8.spyro.service.FireExtinctionOperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,10 +25,10 @@ public class FireExtinctionOperationController {
         return fireExtinctionOperationService.endFireExtinctionOperation(request);
     }
 
-    /*@GetMapping("{emergencyId}")
-    public List<FireExtinctionOperation> getFireExtinctionOperations(@PathVariable("emergencyId") String emergencyId){
-        return fireExtinctionOperationService.findByEmergencyId(emergencyId);
-    }*/
+    @GetMapping("groups/{fireExtinctionOperationId}")
+    public List<Firefighter> getFireExtinctionOperations(@PathVariable("fireExtinctionOperationId") String fireExtinctionOperationId){
+        return fireExtinctionOperationService.findGroupsById(fireExtinctionOperationId);
+    }
 
     @GetMapping("{emergencyId}")
     public FireExtinctionOperationGetGroupsDTO getFireExtinctionOperationsByEmergency(@PathVariable("emergencyId") String emergencyId){

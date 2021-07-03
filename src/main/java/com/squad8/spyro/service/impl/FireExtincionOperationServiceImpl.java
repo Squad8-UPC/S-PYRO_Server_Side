@@ -95,6 +95,19 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
 
     }
 
+    @Override
+    public List<Firefighter> findGroupsById(String fireExtinctionOperationId) {
+
+        FireExtinctionOperation operation = fireExtinctionOperationRepository.findById(fireExtinctionOperationId).get();
+
+        List<Firefighter> firefighters = new ArrayList<>();
+
+        firefighters.add(operation.getFirefighterEquipment1().getFirefighter());
+        firefighters.add(operation.getFirefighterEquipment2().getFirefighter());
+
+        return firefighters;
+    }
+
     /*@Override
     public List<FireExtinctionOperation> findByEmergencyId(String emergencyId) {
         return fireExtinctionOperationRepository.findByEmergencyId(emergencyId);
