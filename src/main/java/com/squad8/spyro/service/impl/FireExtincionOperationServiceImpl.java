@@ -114,7 +114,7 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
         List<OperationDTO> grupos = new ArrayList<>();
 
         for (FireExtinctionOperation operation: operations) {
-            grupos.add(new OperationDTO(operation.getFirefighterEquipment1().getFirefighter(), operation.getFirefighterEquipment2().getFirefighter()));
+            grupos.add(new OperationDTO(operation.getId(),operation.getFirefighterEquipment1().getFirefighter(), operation.getFirefighterEquipment2().getFirefighter()));
             System.out.println(grupos);
         }
         operationsDTO.setGroups(grupos);

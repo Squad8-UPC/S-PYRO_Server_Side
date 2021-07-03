@@ -17,8 +17,9 @@ public class OperationDTO implements Serializable {
 
     private static final long serialVersionUID=1L;
 
-    Firefighter firefighter1;
-    Firefighter firefighter2;
+    private String id;
+    private Firefighter firefighter1;
+    private Firefighter firefighter2;
 
     @Override
     public String toString() {
