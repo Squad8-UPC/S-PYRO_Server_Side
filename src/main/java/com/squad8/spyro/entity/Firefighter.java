@@ -47,4 +47,6 @@ public class Firefighter {
     @Column(name = "height")
     private Integer height;
 
+
+
 }

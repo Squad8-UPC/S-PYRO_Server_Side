@@ -2,6 +2,8 @@ package com.squad8.spyro.service.impl;
 
 import com.squad8.spyro.dto.request.FireExtinctionOperationCreationDTO;
 import com.squad8.spyro.dto.request.FireExtinctionOperationEndDTO;
+import com.squad8.spyro.dto.request.FireExtinctionOperationGetGroupsDTO;
+import com.squad8.spyro.dto.request.OperationDTO;
 import com.squad8.spyro.entity.*;
 import com.squad8.spyro.repository.FireExtinctionOperationRepository;
 import com.squad8.spyro.service.*;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -92,10 +95,32 @@ public class FireExtincionOperationServiceImpl implements FireExtinctionOperatio
 
     }
 
-    @Override
+    /*@Override
     public List<FireExtinctionOperation> findByEmergencyId(String emergencyId) {
         return fireExtinctionOperationRepository.findByEmergencyId(emergencyId);
-    }
+    }*/
 
+
+    @Override
+    public FireExtinctionOperationGetGroupsDTO findByEmergencyId(String emergencyId) {
+
+        FireExtinctionOperationGetGroupsDTO operationsDTO = new FireExtinctionOperationGetGroupsDTO();
+
+        List<FireExtinctionOperation> operations = fireExtinctionOperationRepository.findByEmergencyId(emergencyId);
+
+
+        operationsDTO.setId(emergencyId);
+
+        List<OperationDTO> grupos = new ArrayList<>();
+
+        for (FireExtinctionOperation operation: operations) {
+            grupos.add(new OperationDTO(operation.getFirefighterEquipment1().getFirefighter(), operation.getFirefighterEquipment2().getFirefighter()));
+            System.out.println(grupos);
+        }
+        operationsDTO.setGroups(grupos);
+
+        System.out.println(operationsDTO);
+        return operationsDTO;
+    }
 
 }

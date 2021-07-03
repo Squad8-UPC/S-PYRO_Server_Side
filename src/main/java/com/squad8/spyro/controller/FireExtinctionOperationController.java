@@ -2,6 +2,7 @@ package com.squad8.spyro.controller;
 
 import com.squad8.spyro.dto.request.FireExtinctionOperationCreationDTO;
 import com.squad8.spyro.dto.request.FireExtinctionOperationEndDTO;
+import com.squad8.spyro.dto.request.FireExtinctionOperationGetGroupsDTO;
 import com.squad8.spyro.entity.FireExtinctionOperation;
 import com.squad8.spyro.service.FireExtinctionOperationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,13 @@ public class FireExtinctionOperationController {
         return fireExtinctionOperationService.endFireExtinctionOperation(request);
     }
 
-    @GetMapping("{emergencyId}")
+    /*@GetMapping("{emergencyId}")
     public List<FireExtinctionOperation> getFireExtinctionOperations(@PathVariable("emergencyId") String emergencyId){
+        return fireExtinctionOperationService.findByEmergencyId(emergencyId);
+    }*/
+
+    @GetMapping("{emergencyId}")
+    public FireExtinctionOperationGetGroupsDTO getFireExtinctionOperationsByEmergency(@PathVariable("emergencyId") String emergencyId){
         return fireExtinctionOperationService.findByEmergencyId(emergencyId);
     }
 

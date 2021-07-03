@@ -2,6 +2,7 @@ package com.squad8.spyro.service;
 
 import com.squad8.spyro.dto.request.FireExtinctionOperationCreationDTO;
 import com.squad8.spyro.dto.request.FireExtinctionOperationEndDTO;
+import com.squad8.spyro.dto.request.FireExtinctionOperationGetGroupsDTO;
 import com.squad8.spyro.entity.FireExtinctionOperation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,5 +19,9 @@ public interface FireExtinctionOperationService {
     public int endFireExtinctionOperation(FireExtinctionOperationEndDTO request);
 
 
-    public List<FireExtinctionOperation> findByEmergencyId(String emergencyId);
+    /*public List<FireExtinctionOperation> findByEmergencyId(String emergencyId);*/
+
+    public FireExtinctionOperationGetGroupsDTO findByEmergencyId(String emergencyId);
+
+
 }
